@@ -5,11 +5,15 @@ export default createGlobalStyle`
   padding:0;
   margin:0;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif !important;
+  color:${(props) => props.theme?.colors.textColor} !important;
+
 }
 body{
-  background:${(props) => props.theme.colors.backgroundColor};
+  background:${(props) => props.theme?.colors.backgroundColor};
   font-size:14px;
-  color: ${(props) => props.theme.colors.textColor};
-  font-family: sans-serif;
+  width: 100vw;
+  height: 100vh;
 }
 `;
+
