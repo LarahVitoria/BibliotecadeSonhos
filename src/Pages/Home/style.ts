@@ -1,3 +1,4 @@
+import { important } from "polished";
 import styled from "styled-components";
 
 export const Container = styled.section`
@@ -31,7 +32,7 @@ export const Text = styled.div`
   margin: 1rem;
   &:after {
     content: "";
-    background-color: #db4681;
+    background-color: ${(props) => props.theme.colors.pink};
     width: 100%;
     z-index: -1;
     position: absolute;
@@ -90,12 +91,12 @@ export const Image = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
-  border: 2px solid ${(props) => props.theme.colors.textColor};
+  border: 2px solid ${(props) => props.theme.colors.pink};
   position: relative;
   margin: 1rem;
   &:after {
     content: "";
-    background-color: #ffd4f4;
+    background-color: ${(props) => props.theme.colors.textColor};
     width: 100%;
     z-index: -1;
     position: absolute;
@@ -110,6 +111,8 @@ export const Image = styled.div`
   }
   > p {
     font-size: 1.2rem;
+    color: ${(props) => props.theme.colors.pink} !important;
+
     text-align: center;
   }
   @media screen and (max-width: 900px) {

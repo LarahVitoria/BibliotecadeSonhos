@@ -10,6 +10,6 @@ export default {
     red: "#E7755F",
     orange: "#EEA360",
     backgroundColor: "#333",
-    textColor: "#f3f3f3",
+    textColor: "#fff",
   },
 };

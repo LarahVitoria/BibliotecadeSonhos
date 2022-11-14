@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 interface IPropsMenu {
   open: boolean;
+  tipoUsuario: string | null;
 }
 
 export const Container = styled.header`
@@ -16,18 +17,19 @@ export const Container = styled.header`
   z-index: 100000;
   padding: 0px 30px;
   overflow: hidden;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
   @media screen and (max-width: 600px) {
     padding: 0px 10px;
     justify-content: space-between;
   }
 `;
 
-export const LogoContainer = styled.div`
+export const LogoContainer = styled.div<IPropsMenu>`
   margin-left: 0.5rem;
   display: flex;
   align-items: center;
   font-size: 1.2rem;
-  width: 60vw;
+  width: ${({ tipoUsuario }) => (tipoUsuario === "normal" ? "60vw" : "40vw")};
   svg {
     height: 8vh;
   }
@@ -41,12 +43,12 @@ export const Menu = styled.ul<IPropsMenu>`
   justify-content: space-between;
   list-style: none;
   align-items: center;
-  z-index: 100000;
-  width: 40vw;
+  width: ${({ tipoUsuario }) => (tipoUsuario === "normal" ? "40vw" : "60vw")};
   @media screen and (max-width: 900px) {
     width: 60vw;
   }
   @media screen and (max-width: 600px) {
+    z-index: 100000;
     background: ${(props) => props.theme.colors.backgroundColor};
     display: flex;
     position: absolute;
@@ -67,7 +69,21 @@ export const MenuItem = styled.li`
   height: 100%;
   display: flex;
   align-items: center;
-
+  color: ${(props) => props.theme.colors.textColor};
+  font-size: 1rem;
+  font-weight: 200;
+  text-decoration: none;
+  > svg {
+    &:hover {
+      color: #cb9cf2 !important;
+    }
+  }
+  > h4 {
+    margin-right: 20px;
+    &:hover {
+      color: #cb9cf2 !important;
+    }
+  }
   @media screen and (max-width: 600px) {
     width: 100%;
     height: 60px;
@@ -86,19 +102,24 @@ export const MenuItemLink = styled.a`
   color: ${(props) => props.theme.colors.textColor};
   font-size: 1rem;
   font-weight: 200;
+  text-decoration: none;
+
   cursor: pointer;
   > svg {
     display: none;
   }
   > h4 {
-    margin-left: 20px;
+    margin: 0px 20px;
+    &:hover {
+      color: #cb9cf2 !important;
+    }
   }
   @media screen and (max-width: 600px) {
     > svg {
-    display: flex;
-  }
+      display: flex;
+    }
     margin-left: 30vw;
-  width: 100vw;
+    width: 100vw;
   }
 `;
 

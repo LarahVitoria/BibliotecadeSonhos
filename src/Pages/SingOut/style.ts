@@ -31,9 +31,28 @@ width: 50%;
     margin-bottom:1rem;
     width: 300px;
   }
+  >div{
+    >label{
+      color: ${(props) => props.theme.colors.pink} !important;
+    }
+    > div {
+        > input {
+          color: ${(props) => props.theme.colors.pink} !important;
+        }
+      }
+  }
   >button{
     color:#fff;
   }
+  .btn {
+      all: unset;
+        color: ${(props) => props.theme.colors.pink} !important;
+      font-weight:600;
+
+      &:hover {
+        color: ${(props) => props.theme.colors.blue} !important;
+      }
+    }
   >p{
     >a{
       text-decoration:none;

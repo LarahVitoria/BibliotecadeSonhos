@@ -12,8 +12,11 @@ import {
 } from "./style";
 import { IconContext } from "react-icons";
 import { FaBars, FaTimes, FaHome } from "react-icons/fa";
-import { AiOutlineFileSearch, AiTwotoneCalendar } from "react-icons/ai";
+import { AiOutlineFileSearch, AiOutlineUser } from "react-icons/ai";
+import { BsBook } from "react-icons/bs";
 import { TbCalendarTime } from "react-icons/tb";
+import { IoLogOutOutline } from "react-icons/io5";
+import { useAuth } from "../../Services/Validation/auth";
 
 interface IPropsHeader {
   toggleTheme(): void;
@@ -22,11 +25,16 @@ interface IPropsHeader {
 const Header: React.FC<IPropsHeader> = ({ toggleTheme }) => {
   const { colors, title } = useContext(ThemeContext);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
+  const tipoUsuario = localStorage.getItem("@InfoUser:tipo");
+  console.log(tipoUsuario);
+  const { singOut } = useAuth();
 
   return (
     <Container>
-      <IconContext.Provider value={{ style: { width: "32px", height:"32px" } }}>
-        <LogoContainer>
+      <IconContext.Provider
+        value={{ style: { width: "32px", height: "32px" } }}
+      >
+        <LogoContainer open={showMobileMenu} tipoUsuario={tipoUsuario}>
           <svg
             viewBox="0 0 850 303"
             fill="none"
@@ -117,26 +125,62 @@ const Header: React.FC<IPropsHeader> = ({ toggleTheme }) => {
           {showMobileMenu ? <FaTimes /> : <FaBars />}
         </MobileIcon>
 
-        <Menu open={showMobileMenu}>
+        <Menu open={showMobileMenu} tipoUsuario={tipoUsuario}>
           <MenuItem>
-            <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-                <FaHome />
-                <h4>Home</h4>
+            <MenuItemLink
+              href="/"
+              onClick={() => setShowMobileMenu(!showMobileMenu)}
+            >
+              <FaHome />
+              <h4>Home</h4>
             </MenuItemLink>
           </MenuItem>
           <MenuItem>
-            <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-                <AiOutlineFileSearch />
-                <h4>Localizar</h4>
+            <MenuItemLink
+              href="/Localizar"
+              onClick={() => setShowMobileMenu(!showMobileMenu)}
+            >
+              <AiOutlineFileSearch />
+              <h4>Localizar</h4>
             </MenuItemLink>
           </MenuItem>
           <MenuItem>
-            <MenuItemLink onClick={() => setShowMobileMenu(!showMobileMenu)}>
-                <TbCalendarTime />
-                <h4>Emprestar</h4>
+            <MenuItemLink
+              href="/Emprestar"
+              onClick={() => setShowMobileMenu(!showMobileMenu)}
+            >
+              <TbCalendarTime />
+              <h4>Emprestar</h4>
             </MenuItemLink>
           </MenuItem>
-
+          {tipoUsuario === "admin" && (
+            <>
+              <MenuItem>
+                <MenuItemLink
+                  href="/Livros"
+                  onClick={() => setShowMobileMenu(!showMobileMenu)}
+                >
+                  <BsBook />
+                  <h4>Livros</h4>
+                </MenuItemLink>
+              </MenuItem>
+              <MenuItem>
+                <MenuItemLink
+                  href="/Usuarios"
+                  onClick={() => setShowMobileMenu(!showMobileMenu)}
+                >
+                  <AiOutlineUser />
+                  <h4>Usuários</h4>
+                </MenuItemLink>
+              </MenuItem>
+            </>
+          )}
+          <MenuItem key="1" onClick={singOut}>
+            <MenuItemLink>
+              <IoLogOutOutline />
+              <h4>Sair</h4>
+            </MenuItemLink>
+          </MenuItem>
           <MenuItem>
             <Switch
               onClick={() => setShowMobileMenu(!showMobileMenu)}

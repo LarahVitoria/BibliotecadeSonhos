@@ -80,6 +80,7 @@ const Localizar: React.FC = () => {
         defaultValue="Localizar livros"
         size="small"
         placeholder="Nome livro"
+        color="error"
         startAdornment={
           <InputAdornment position="start">
             <BiSearchAlt />

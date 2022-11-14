@@ -1,13 +1,15 @@
-import React, { useState } from "react";
-import { Button, TextField, Typography } from "@mui/material";
+import { useState } from "react";
+import { Button, TextField } from "@mui/material";
 import { Ilustration, Form, Container } from "./style";
 import { useAuth } from "../../Services/Validation/auth";
+import { useNavigate } from "react-router-dom";
 
 const SingIn = () => {
   const [ra, setRa] = useState<number>(0);
   const [senha, setSenha] = useState<string>("");
-
+  const navigate = useNavigate();
   const { singIn } = useAuth();
+
   return (
     <Container>
       <Ilustration>
@@ -330,12 +332,12 @@ const SingIn = () => {
             label="RA"
             onChange={(e: any) => setRa(e.target.value)}
             required
-            type={"number"}
+            
             variant="outlined"
             color="primary"
           />
           <TextField
-          onChange={(e: any) => setSenha(e.target.value)}
+            onChange={(e: any) => setSenha(e.target.value)}
             id="senha"
             label="Senha"
             required
@@ -346,9 +348,9 @@ const SingIn = () => {
           <Button variant="contained" type="submit" color="success">
             Entrar
           </Button>
-          <Typography color="deepskyblue">
-            Não possui cadastro? <a href="http://">Clique aqui!</a>
-          </Typography>
+          <button className="btn" onClick={() => navigate("/Cadastrar")}>
+            Não possui cadastro? Clique aqui!
+          </button>
         </form>
       </Form>
     </Container>

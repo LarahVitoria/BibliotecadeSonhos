@@ -10,7 +10,7 @@ const Routes = () => {
   const { logged } = useAuth();
   return (
     <BrowserRouter>
-      {logged ? <PublicRoutes /> : <PrivateRoutes />}
+      {logged ?  <PrivateRoutes /> : <PublicRoutes />}
     </BrowserRouter>
   )
 }

@@ -1,3 +1,4 @@
+import { important } from 'polished';
 import styled from "styled-components";
 
 export const Container = styled.section`
@@ -9,13 +10,13 @@ export const Container = styled.section`
     margin-top: 10px;
   }
   .MuiTableCell-head{
-    background-color: ${(props) => props.theme.colors.pink} !important;
-    border-top:3px solid ${(props) => props.theme.colors.green};
+    background-color: ${(props) => props.theme.colors.red} !important;
+    border-top:3px solid ${(props) => props.theme.colors.red};
     border-left:none;
     border-right:none;
   }
   .MuiTableCell-body{
-    border-bottom: 1px solid ${(props) => props.theme.colors.blue};
+    border-bottom: 1px solid ${(props) => props.theme.colors.red};
   }
   >h1{
     margin-top: 2rem;
@@ -23,11 +24,10 @@ export const Container = styled.section`
     font-weight: 800;
     font-size: 3rem;
     text-align:center;
-    color: ${(props) => props.theme?.colors.textColor};
+    color: ${(props) => props.theme?.colors.red}!important;
   }
   >div{
     width:90vw;
-    color: ${(props) => props.theme?.colors.textColor};
     &::before{
       border-bottom: 1px solid ${(props) => props.theme?.colors.textColor};
     }
@@ -41,7 +41,6 @@ export const Container = styled.section`
     margin: 1.2rem 0;
     font-weight: 800;
     font-size: 2rem;
-    color: ${(props) => props.theme?.colors.textColor};
   }
   }
   @media screen and (max-width: 600px) {
@@ -50,7 +49,6 @@ export const Container = styled.section`
     text-align: center;
     font-weight: 800;
     font-size: 1.5rem;
-    color: ${(props) => props.theme?.colors.textColor};
   }
   }
 

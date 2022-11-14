@@ -9,7 +9,7 @@ export default {
     green: "#85B86E",
     red: "#E7755F",
     orange: "#EEA360",
-    backgroundColor: "#f3f3f3",
+    backgroundColor: "#fff",
     textColor: "#333",
   },
 };
