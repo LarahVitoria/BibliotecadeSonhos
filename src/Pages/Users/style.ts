@@ -1,7 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { slideInDown } from "react-animations";
 
-const lightSpeedInAnimation = keyframes`${slideInDown}`;
 
 export const ContainerInformation = styled.div`
   display: flex;
@@ -29,7 +27,6 @@ export const Title = styled.h1`
   font-weight: bolder;
   margin-bottom: 0.5rem;
   color: ${(props) => props.theme.colors.green} !important;
-  animation: 1s ${lightSpeedInAnimation};
   @media (max-width: 576px) {
     font-size: 1.2rem;
   }
