@@ -18,24 +18,23 @@ const AuthProvider = ({ children }: any) => {
   });
 
   const singIn = async (ra: number, senhaUsuario: string) => {
-    await api
-      .get(`users?ra=${ra}&senha=${senhaUsuario}`)
-      .then((response) => {
-        response.data.map((item: { tipo: any; email: any; nome_completo: any; ra: any; }) => {
-          localStorage.setItem("@InfoUser:tipo", `${item.tipo}`);
-          localStorage.setItem("@InfoUser:email", `${item.email}`);
-          localStorage.setItem("@InfoUser:nome", `${item.nome_completo}`);
-          localStorage.setItem("@InfoUser:ra", `${item.ra}`);
-
-        });
-      })
-      .catch(() => {
+    await api.get(`users?ra=${ra}&senha=${senhaUsuario}`).then((response) => {
+      const responseGet = response.data;
+      if (responseGet.length > 0) {
+        responseGet.map(
+          (item: { tipo: any; email: any; nome_completo: any; ra: any }) => {
+            localStorage.setItem("@InfoUser:tipo", `${item.tipo}`);
+            localStorage.setItem("@InfoUser:email", `${item.email}`);
+            localStorage.setItem("@InfoUser:nome", `${item.nome_completo}`);
+            localStorage.setItem("@InfoUser:ra", `${item.ra}`);
+            setLogged(true);
+            localStorage.setItem("@biblioteca:logged", "true");
+          }
+        );
+      } else {
         toastfyError("Usuário não encontrado, tente novamente.");
-      })
-      .finally(() => {
-        setLogged(true);
-        localStorage.setItem("@biblioteca:logged", "true");
-      });
+      }
+    });
   };
 
   const singOut = () => {

@@ -1,6 +1,7 @@
 import { DefaultTheme, ThemeProvider } from "styled-components";
 import usePersistedState from "./Utils/usePersistedState";
-
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 import light from "./Styles/Themes/light";
 import dark from "./Styles/Themes/dark";
 
@@ -19,6 +20,7 @@ const App = () => {
 
   return (
     <ThemeProvider theme={theme}>
+      <ToastContainer/>
       <GlobalStyle />
       {logged && <Header toggleTheme={toggleTheme} />}
       <Routes />

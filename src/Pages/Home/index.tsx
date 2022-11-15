@@ -17,7 +17,7 @@ const Home: React.FC = () => {
         </Typography>
       </Text>
       <Image>
-        <img src="src/Assets/livro.png"/>
+        <img src="livro.png"/>
         <Typography>
         "Se existem tantos livros para ler, é porque ainda 
         existe muita coisa para se aprender."
