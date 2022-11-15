@@ -5,9 +5,8 @@ import SingOut from "../Pages/SingOut";
 function Routes() {
   return (
     <Switch>
-          <Route path="/" element={<SingIn />} />
+      <Route path="/" element={<SingIn />} />
       <Route path="/cadastrar" element={<SingOut />} />
-      
     </Switch>
   );
 }
