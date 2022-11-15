@@ -348,7 +348,7 @@ const SingIn = () => {
           <Button variant="contained" type="submit" color="success">
             Entrar
           </Button>
-          <button className="btn" onClick={() => navigate("/Cadastrar")}>
+          <button className="btn" onClick={() => navigate("/cadastrar")}>
             Não possui cadastro? Clique aqui!
           </button>
         </form>

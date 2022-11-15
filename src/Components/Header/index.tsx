@@ -26,7 +26,6 @@ const Header: React.FC<IPropsHeader> = ({ toggleTheme }) => {
   const { colors, title } = useContext(ThemeContext);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const tipoUsuario = localStorage.getItem("@InfoUser:tipo");
-  console.log(tipoUsuario);
   const { singOut } = useAuth();
 
   return (
@@ -137,7 +136,7 @@ const Header: React.FC<IPropsHeader> = ({ toggleTheme }) => {
           </MenuItem>
           <MenuItem>
             <MenuItemLink
-              href="/Localizar"
+              href="/localizar"
               onClick={() => setShowMobileMenu(!showMobileMenu)}
             >
               <AiOutlineFileSearch />
@@ -146,7 +145,7 @@ const Header: React.FC<IPropsHeader> = ({ toggleTheme }) => {
           </MenuItem>
           <MenuItem>
             <MenuItemLink
-              href="/Emprestar"
+              href="/emprestar"
               onClick={() => setShowMobileMenu(!showMobileMenu)}
             >
               <TbCalendarTime />
@@ -157,7 +156,7 @@ const Header: React.FC<IPropsHeader> = ({ toggleTheme }) => {
             <>
               <MenuItem>
                 <MenuItemLink
-                  href="/Livros"
+                  href="/livros"
                   onClick={() => setShowMobileMenu(!showMobileMenu)}
                 >
                   <BsBook />
@@ -166,7 +165,7 @@ const Header: React.FC<IPropsHeader> = ({ toggleTheme }) => {
               </MenuItem>
               <MenuItem>
                 <MenuItemLink
-                  href="/Usuarios"
+                  href="/usuarios"
                   onClick={() => setShowMobileMenu(!showMobileMenu)}
                 >
                   <AiOutlineUser />

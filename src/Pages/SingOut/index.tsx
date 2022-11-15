@@ -17,7 +17,7 @@ const SingOut = () => {
     const data = {
       nome_completo: nomeCompleto,
       ra: ra,
-      emai: email,
+      email: email,
       senha: senha,
       tipo: "normal"
     };

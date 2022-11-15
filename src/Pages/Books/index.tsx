@@ -84,15 +84,14 @@ const Livross = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [modalEdit, setModalEdit] = React.useState(false);
   const [dialogDelete, setDialogDelete] = React.useState(false);
-  console.log(emprestado);
 
   const listLivross = () => {
     baseApi
       .get(`livros`)
-      .then((response) => {
+      .then((response: { data: React.SetStateAction<Livros[]>; }) => {
         setLivros(response.data);
       })
-      .catch((error) => {
+      .catch((error: any) => {
         toastfyError("Erro ao listar Livros.");
         console.error("There was an error!", error);
       });
@@ -131,7 +130,7 @@ const Livross = () => {
 
   function openModalAndSelectLivros(id: number) {
     setModalEdit(true);
-    baseApi.get(`livros/${id}`).then((response) => {
+    baseApi.get(`livros/${id}`).then((response: { data: { id: React.SetStateAction<string>; titulo_livro: React.SetStateAction<string>; autor_livro: React.SetStateAction<string>; ano_livro: React.SetStateAction<number>; emprestado: { toString: () => React.SetStateAction<string>; }; ra_emprestimo: React.SetStateAction<string>; email_emprestimo: React.SetStateAction<string>; nome_emprestimo: React.SetStateAction<string>; estante_livro: React.SetStateAction<number>; prateleira_livro: React.SetStateAction<number>; secao_livro: React.SetStateAction<string>; }; }) => {
       setId(response.data.id);
       setTitulo_livro(response.data.titulo_livro);
       setAutor_livro(response.data.autor_livro);
@@ -216,7 +215,7 @@ const Livross = () => {
           <Button
             color="warning"
             variant="outlined"
-            onClick={() => navigate("/Cadastro_Livros")}
+            onClick={() => navigate("/cadastroLivros")}
             endIcon={<BsChevronDoubleRight />}
           >
             Cadastro de Livros
@@ -236,7 +235,7 @@ const Livross = () => {
           </InputAdornment>
         }
         value={busca}
-        onChange={(e) => setBusca(e.target.value)}
+        onChange={(e: { target: { value: React.SetStateAction<string>; }; }) => setBusca(e.target.value)}
         type={"text"}
       />
 
@@ -433,7 +432,7 @@ const Livross = () => {
               color="warning"
               value={titulo_livro}
               required
-              onChange={(e) => setTitulo_livro(e.target.value)}
+              onChange={(e: { target: { value: React.SetStateAction<string>; }; }) => setTitulo_livro(e.target.value)}
             />
             <TextField
               id="autor_livro"
@@ -443,7 +442,7 @@ const Livross = () => {
               color="warning"
               value={autor_livro}
               required
-              onChange={(e) => setAutor_livro(e.target.value)}
+              onChange={(e: { target: { value: React.SetStateAction<string>; }; }) => setAutor_livro(e.target.value)}
             />
             <Grid
               container
@@ -458,7 +457,7 @@ const Livross = () => {
                   color="warning"
                   value={ano_livro}
                   required
-                  onChange={(e) => setAno_livro(Number(e.target.value))}
+                  onChange={(e: { target: { value: any; }; }) => setAno_livro(Number(e.target.value))}
                 />
               </Grid>
               <Grid item xs={6}>
@@ -470,7 +469,7 @@ const Livross = () => {
                   color="warning"
                   value={secao_livro}
                   required
-                  onChange={(e) => setSecao_livro(e.target.value)}
+                  onChange={(e: { target: { value: React.SetStateAction<string>; }; }) => setSecao_livro(e.target.value)}
                 />
               </Grid>
             </Grid>
@@ -487,7 +486,7 @@ const Livross = () => {
                   color="warning"
                   value={estante_livro}
                   required
-                  onChange={(e) => setEstante_livro(Number(e.target.value))}
+                  onChange={(e: { target: { value: any; }; }) => setEstante_livro(Number(e.target.value))}
                 />
               </Grid>
               <Grid item xs={6}>
@@ -498,13 +497,13 @@ const Livross = () => {
                   color="warning"
                   value={prateleira_livro}
                   required
-                  onChange={(e) => setPrateleira_livro(Number(e.target.value))}
+                  onChange={(e: { target: { value: any; }; }) => setPrateleira_livro(Number(e.target.value))}
                 />
               </Grid>
             </Grid>
 
             <TextField
-              onChange={(e) => setEmprestado(e.target.value)}
+              onChange={(e: { target: { value: React.SetStateAction<string>; }; }) => setEmprestado(e.target.value)}
               label="Emprestado"
               name="Tipo"
               required
@@ -530,7 +529,7 @@ const Livross = () => {
                   color="warning"
                   value={nome_emprestimo}
                   required
-                  onChange={(e) => setNome_emprestimo(e.target.value)}
+                  onChange={(e: { target: { value: React.SetStateAction<string>; }; }) => setNome_emprestimo(e.target.value)}
                 />
                 <TextField
                   id="email_emprestimo"
@@ -540,7 +539,7 @@ const Livross = () => {
                   color="warning"
                   value={email_emprestimo}
                   required
-                  onChange={(e) => setEmail_emprestimo(e.target.value)}
+                  onChange={(e: { target: { value: React.SetStateAction<string>; }; }) => setEmail_emprestimo(e.target.value)}
                 />
                 <TextField
                   id="ra_emprestimo"
@@ -550,7 +549,7 @@ const Livross = () => {
                   color="warning"
                   value={ra_emprestimo}
                   required
-                  onChange={(e) => setPrateleira_livro(Number(e.target.value))}
+                  onChange={(e: { target: { value: any; }; }) => setPrateleira_livro(Number(e.target.value))}
                 />
               </>
             )}

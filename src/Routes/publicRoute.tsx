@@ -6,7 +6,7 @@ function Routes() {
   return (
     <Switch>
           <Route path="/" element={<SingIn />} />
-      <Route path="/Cadastrar" element={<SingOut />} />
+      <Route path="/cadastrar" element={<SingOut />} />
       
     </Switch>
   );

@@ -1712,7 +1712,7 @@ const Registerlivros = () => {
         <Button
           variant="outlined"
           color="warning"
-          onClick={() => navigate("/Livros")}
+          onClick={() => navigate("/livros")}
           startIcon={<BsChevronDoubleLeft />}
         >
           Listar Livros

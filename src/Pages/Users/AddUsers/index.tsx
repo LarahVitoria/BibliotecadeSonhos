@@ -456,7 +456,7 @@ const RegisterUsers = () => {
         <Button
           variant="outlined"
           color="success"
-          onClick={() => navigate("/Usuarios")}
+          onClick={() => navigate("/usuarios")}
           startIcon={<BsChevronDoubleLeft />}
         >
           Listar Usuários

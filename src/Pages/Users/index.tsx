@@ -68,7 +68,7 @@ const Users = () => {
         listUsers();
         handleCloseDialog();
         toastfySuccess("Usuário excluído com sucesso!");
-        navigate("/Livros");
+        navigate("/livros");
       })
       .catch((error: any) => {
         toastfyError("Erro ao excluir usuário.");
@@ -149,7 +149,7 @@ const Users = () => {
           <Button
             variant="outlined"
             color="success"
-            onClick={() => navigate("/Cadastro_Usuarios")}
+            onClick={() => navigate("/cadastroUsuarios")}
             endIcon={<BsChevronDoubleRight />}
           >
             Cadastro de Usuários
