@@ -84,6 +84,7 @@ const Livross = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [modalEdit, setModalEdit] = React.useState(false);
   const [dialogDelete, setDialogDelete] = React.useState(false);
+  const tipoUsuario = localStorage.getItem("@InfoUser:tipo");
 
   const listLivross = () => {
     baseApi
@@ -100,6 +101,11 @@ const Livross = () => {
   const updateLivross = (event: FormEvent) => {
     event.preventDefault();
     setIsLoading(true);
+    if(emprestado === "false"){
+      setNome_emprestimo(""),
+      setEmail_emprestimo(""),
+      setRa_emprestimo("")
+    }
     const data = {
       titulo_livro,
       ano_livro,

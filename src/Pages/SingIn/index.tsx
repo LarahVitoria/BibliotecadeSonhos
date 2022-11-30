@@ -5,7 +5,7 @@ import { useAuth } from "../../Services/Validation/auth";
 import { useNavigate } from "react-router-dom";
 
 const SingIn = () => {
-  const [ra, setRa] = useState<number>(0);
+  const [ra, setRa] = useState("");
   const [senha, setSenha] = useState<string>("");
   const navigate = useNavigate();
   const { singIn } = useAuth();
@@ -331,8 +331,7 @@ const SingIn = () => {
             id="ra"
             label="RA"
             onChange={(e: any) => setRa(e.target.value)}
-            required
-            
+            required   
             variant="outlined"
             color="primary"
           />

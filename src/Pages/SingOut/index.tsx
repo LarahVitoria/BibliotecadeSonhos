@@ -9,7 +9,7 @@ const SingOut = () => {
   const navigate = useNavigate();
   const [nomeCompleto, setNomeCompleto] = useState("");
   const [email, setEmail] = useState("");
-  const [ra, setRa] = useState(0);
+  const [ra, setRa] = useState("");
   const [senha, setSenha] = useState("");
 
   async function cadastrarUsuario(event: FormEvent) {
@@ -352,7 +352,7 @@ const SingOut = () => {
             variant="outlined"
             color="primary"
             required
-            onChange={(e)=> setRa(Number(e.target.value))}
+            onChange={(e)=> setRa(e.target.value)}
           />
           <TextField
             id="senha"

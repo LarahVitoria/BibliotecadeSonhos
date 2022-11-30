@@ -5,7 +5,7 @@ import api from "../Api/api";
 
 interface IAuthContext {
   logged: boolean;
-  singIn(ra: number, senha: string): void;
+  singIn(ra: string, senha: string): void;
   singOut(): void;
 }
 
@@ -17,7 +17,7 @@ const AuthProvider = ({ children }: any) => {
     return !!isLogged;
   });
 
-  const singIn = async (ra: number, senhaUsuario: string) => {
+  const singIn = async (ra: string, senhaUsuario: string) => {
     await api.get(`users?ra=${ra}&senha=${senhaUsuario}`).then((response) => {
       const responseGet = response.data;
       if (responseGet.length > 0) {
