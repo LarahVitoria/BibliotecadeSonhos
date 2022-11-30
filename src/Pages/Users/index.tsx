@@ -42,7 +42,7 @@ interface User {
   id: number;
   nome_completo: string;
   email: string;
-  ra: number;
+  ra: string;
   tipo: string;
 }
 
@@ -54,7 +54,7 @@ const Users = () => {
   const [id, setId] = useState("");
   const [nome_completo, setnome_completo] = useState("");
   const [email, setEmail] = useState("");
-  const [ra, setRa] = useState(0);
+  const [ra, setRa] = useState("");
   const [senha, setSenha] = useState("");
   const [tipo, setTipo] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -265,7 +265,7 @@ const Users = () => {
               color="success"
               value={ra}
               required
-              onChange={(e) => setRa(Number(e.target.value))}
+              onChange={(e) => setRa(e.target.value)}
             />
             <TextField
               onChange={(e) => setTipo(e.target.value)}
